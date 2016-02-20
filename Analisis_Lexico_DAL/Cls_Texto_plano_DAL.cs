@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tarea_Programada1_Modelos.BL
+namespace Analisis_Lexico_DAL
 {
-    class Analisis_lexico_BL
+    class Cls_Texto_plano_DAL
     {
     }
 }

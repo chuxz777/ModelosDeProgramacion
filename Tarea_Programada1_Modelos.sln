@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarea_Programada1_Modelos", "Tarea_Programada1_Modelos\Tarea_Programada1_Modelos.csproj", "{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BL", "BL", "{E0F0DDC4-5673-49BC-A1E9-011014FC4895}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PL", "PL", "{12CCC265-87B3-444C-A929-9CB74A022D8A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cls_Analisis_Lexico_BL", "Cls_Analisis_Lexico_BL\Cls_Analisis_Lexico_BL.csproj", "{24E7F185-FD6C-4F9A-A905-813F0F3682E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analisis_Lexico_PL", "Analisis_Lexico_PL\Analisis_Lexico_PL.csproj", "{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{BDEFA517-9B8A-4D91-B418-2387E4906010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Analisis_Lexico_DAL", "Analisis_Lexico_DAL\Analisis_Lexico_DAL.csproj", "{99042285-85CB-4330-9F6B-F3940AA14797}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +21,25 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E7F185-FD6C-4F9A-A905-813F0F3682E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E7F185-FD6C-4F9A-A905-813F0F3682E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E7F185-FD6C-4F9A-A905-813F0F3682E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E7F185-FD6C-4F9A-A905-813F0F3682E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99042285-85CB-4330-9F6B-F3940AA14797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99042285-85CB-4330-9F6B-F3940AA14797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99042285-85CB-4330-9F6B-F3940AA14797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99042285-85CB-4330-9F6B-F3940AA14797}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{24E7F185-FD6C-4F9A-A905-813F0F3682E6} = {E0F0DDC4-5673-49BC-A1E9-011014FC4895}
+		{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69} = {12CCC265-87B3-444C-A929-9CB74A022D8A}
+		{99042285-85CB-4330-9F6B-F3940AA14797} = {BDEFA517-9B8A-4D91-B418-2387E4906010}
 	EndGlobalSection
 EndGlobal

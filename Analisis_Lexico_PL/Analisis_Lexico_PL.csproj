@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D44FF1F-82F4-4220-9ADD-DE1EA7952D41}</ProjectGuid>
+    <ProjectGuid>{79A0ABCB-D7D9-44C1-9174-38DEE2DE0E69}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tarea_Programada1_Modelos</RootNamespace>
-    <AssemblyName>Tarea_Programada1_Modelos</AssemblyName>
+    <RootNamespace>Analisis_Lexico_PL</RootNamespace>
+    <AssemblyName>Analisis_Lexico_PL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frm_Analisis_Lexico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Analisis_Lexico.Designer.cs">
+      <DependentUpon>frm_Analisis_Lexico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -71,8 +77,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BL\" />
-    <Folder Include="PL\" />
+    <ProjectReference Include="..\Analisis_Lexico_DAL\Analisis_Lexico_DAL.csproj">
+      <Project>{99042285-85cb-4330-9f6b-f3940aa14797}</Project>
+      <Name>Analisis_Lexico_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cls_Analisis_Lexico_BL\Cls_Analisis_Lexico_BL.csproj">
+      <Project>{24e7f185-fd6c-4f9a-a905-813f0f3682e6}</Project>
+      <Name>Cls_Analisis_Lexico_BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
