@@ -11,7 +11,6 @@ using Cls_Analisis_Lexico_BL;
 using System.Windows.Input;
 using System.IO;
 
-
 namespace Analisis_Lexico_PL
 {
     public partial class frm_Analisis_Lexico : Form
@@ -83,22 +82,37 @@ namespace Analisis_Lexico_PL
 
         private void tls_Analizar_Click(object sender, EventArgs e)
         {
+            this.timer1.Start();
             try
             {
-                this.timer1.Start();
                rtxt_Tokens.Text = obj_Check_text_BL.CargarLineas(txt_RutaArchivo.Text).ToString();
-                this.timer1.Stop();
             }
             catch 
             {
-
-  
+                MessageBox.Show("Se produjo un error al Analizar el archivo", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            this.timer1.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            this.progressBar1.Increment(100);
+            if (progressBar1.Value < progressBar1.Maximum)
+                progressBar1.Increment(5);
+            else
+                progressBar1.Value = progressBar1.Minimum;
+        }
+
+        private void StartBackgroundWork()
+        {
+            if (Application.RenderWithVisualStyles)
+                progressBar1.Style = ProgressBarStyle.Marquee;
+            else {
+                progressBar1.Style = ProgressBarStyle.Continuous;
+                progressBar1.Maximum = 100;
+                progressBar1.Value = 0;
+                timer1.Enabled = true;
+            }
+            //BackgroundWorker.RunWorkerAsync();
         }
     }
 }

@@ -103,7 +103,7 @@ namespace Cls_Analisis_Lexico_BL
             }
             else
             {
-                return "chupe pija";
+                return "Caracter no especificado";
             }
             return sResultado;
         }
