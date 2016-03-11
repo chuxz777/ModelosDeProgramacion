@@ -116,23 +116,11 @@ namespace Analisis_Lexico_PL
 
         private void tls_Save_tokens_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\Public\Tokens.txt";
+            string path = @"C:\Users\JoséAlberto\Desktop\Tokens.txt";
 
             try
             {
-                if (!File.Exists(path))
-                {
-                    File.Create(path);
-                    TextWriter tw = new StreamWriter(path);
-                    tw.WriteLine(rtxt_Tokens.Text);
-                    tw.Close();
-                }
-                else if (File.Exists(path))
-                {
-                    TextWriter tw = new StreamWriter(path, true);
-                    tw.WriteLine(rtxt_Tokens.Text);
-                    tw.Close();
-                }
+                File.WriteAllLines(path, new[] { rtxt_Tokens.Text });
                 MessageBox.Show("Se creó y guardó exitosamente su documento de tokens", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -144,25 +132,12 @@ namespace Analisis_Lexico_PL
         private void tls_Errores_Click(object sender, EventArgs e)
         {
             string sTodosErrores = obj_Check_text_BL.CargarErrores(rtxt_Tokens.Text);
-            string path = @"C:\Users\Public\Errores.txt";
+            string path = @"C:\Users\JoséAlberto\Desktop\Errores.txt";
+
             try
             {
-                if (!File.Exists(path))
-                {
-                    File.Create(path);
-                    TextWriter tw = new StreamWriter(path);
-                    File.WriteAllText(@"C:\Users\Public\Errores.txt", sTodosErrores);
-                    tw.WriteLine(path);
-                    tw.Close();
-                }
-                else if (File.Exists(path))
-                {
-                    TextWriter tw = new StreamWriter(path, true);
-                    tw.WriteLine(path);
-                    tw.Close();
-                }
+                File.WriteAllLines(path, new[] { sTodosErrores });
                 MessageBox.Show("Se creó y guardó exitosamente su documento de errores", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch
             {
