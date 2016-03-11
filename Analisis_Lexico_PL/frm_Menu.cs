@@ -25,7 +25,8 @@ namespace Analisis_Lexico_PL
 
         private void tlbtn_Nuevo_Click(object sender, EventArgs e)
         {
-
+            frm_Analisis_Lexico_Escrito frm_ana1 = new frm_Analisis_Lexico_Escrito();
+            frm_ana1.ShowDialog();
         }
     }
 }

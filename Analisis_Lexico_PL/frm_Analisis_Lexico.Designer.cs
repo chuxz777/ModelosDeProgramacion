@@ -209,7 +209,7 @@
             // 
             // btn_Cerrar
             // 
-            this.btn_Cerrar.Location = new System.Drawing.Point(640, 466);
+            this.btn_Cerrar.Location = new System.Drawing.Point(624, 466);
             this.btn_Cerrar.Name = "btn_Cerrar";
             this.btn_Cerrar.Size = new System.Drawing.Size(75, 23);
             this.btn_Cerrar.TabIndex = 2;
