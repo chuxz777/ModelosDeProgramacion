@@ -96,23 +96,51 @@ namespace Analisis_Lexico_PL
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (progressBar1.Value < progressBar1.Maximum)
-                progressBar1.Increment(5);
-            else
-                progressBar1.Value = progressBar1.Minimum;
+            //if (progressBar1.Value < progressBar1.Maximum)
+            //    progressBar1.Increment(5);
+            //else
+            //    progressBar1.Value = progressBar1.Minimum;
         }
 
         private void StartBackgroundWork()
         {
-            if (Application.RenderWithVisualStyles)
-                progressBar1.Style = ProgressBarStyle.Marquee;
-            else {
-                progressBar1.Style = ProgressBarStyle.Continuous;
-                progressBar1.Maximum = 100;
-                progressBar1.Value = 0;
-                timer1.Enabled = true;
-            }
+            //if (Application.RenderWithVisualStyles)
+            //    progressBar1.Style = ProgressBarStyle.Marquee;
+            //else {
+            //    progressBar1.Style = ProgressBarStyle.Continuous;
+            //    progressBar1.Maximum = 100;
+            //    progressBar1.Value = 0;
+            //    timer1.Enabled = true;
+            //}
             //BackgroundWorker.RunWorkerAsync();
+        }
+
+        private void tls_Save_tokens_Click(object sender, EventArgs e)
+        {
+
+            string path = @"C:\Users\JoséAlberto\Tokens.txt";
+
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    File.Create(path);
+                    TextWriter tw = new StreamWriter(path);
+                    tw.WriteLine(rtxt_Tokens.Text);
+                    tw.Close();
+                }
+                else if (File.Exists(path))
+                {
+                    TextWriter tw = new StreamWriter(path, true);
+                    tw.WriteLine(rtxt_Tokens.Text);
+                    tw.Close();
+                }
+                MessageBox.Show("Se creó y guardó exitosamente su documento de tokens", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Se produjo un error al crear o guardar el archivo el archivo", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

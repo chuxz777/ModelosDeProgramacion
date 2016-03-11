@@ -16,7 +16,7 @@ namespace Analisis_Lexico_PL
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Analisis_Lexico());
+            Application.Run(new frm_Menu());
         }
     }
 }
