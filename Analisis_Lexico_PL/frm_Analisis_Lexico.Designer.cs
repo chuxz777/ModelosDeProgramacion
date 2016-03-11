@@ -161,6 +161,7 @@
             this.tls_Errores.Size = new System.Drawing.Size(91, 67);
             this.tls_Errores.Text = "Errores";
             this.tls_Errores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tls_Errores.Click += new System.EventHandler(this.tls_Errores_Click);
             // 
             // groupBox2
             // 

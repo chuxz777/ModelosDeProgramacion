@@ -50,6 +50,7 @@ namespace Analisis_Lexico_PL
                 MessageBox.Show("Archivo no pudo ser accesado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void frm_Analisis_Lexico_Load(object sender, EventArgs e)
         {
             tls_Cargar.Enabled = false;
@@ -82,7 +83,6 @@ namespace Analisis_Lexico_PL
 
         private void tls_Analizar_Click(object sender, EventArgs e)
         {
-            this.timer1.Start();
             try
             {
                rtxt_Tokens.Text = obj_Check_text_BL.CargarLineas(txt_RutaArchivo.Text).ToString();
@@ -91,7 +91,6 @@ namespace Analisis_Lexico_PL
             {
                 MessageBox.Show("Se produjo un error al Analizar el archivo", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            this.timer1.Stop();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -117,8 +116,7 @@ namespace Analisis_Lexico_PL
 
         private void tls_Save_tokens_Click(object sender, EventArgs e)
         {
-
-            string path = @"C:\Users\JoséAlberto\Tokens.txt";
+            string path = @"C:\Users\Public\Tokens.txt";
 
             try
             {
@@ -139,7 +137,36 @@ namespace Analisis_Lexico_PL
             }
             catch
             {
-                MessageBox.Show("Se produjo un error al crear o guardar el archivo el archivo", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Se produjo un error al crear o guardar el archivo de Tokens", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void tls_Errores_Click(object sender, EventArgs e)
+        {
+            string sTodosErrores = obj_Check_text_BL.CargarErrores(rtxt_Tokens.Text);
+            string path = @"C:\Users\Public\Errores.txt";
+            try
+            {
+                if (!File.Exists(path))
+                {
+                    File.Create(path);
+                    TextWriter tw = new StreamWriter(path);
+                    File.WriteAllText(@"C:\Users\Public\Errores.txt", sTodosErrores);
+                    tw.WriteLine(path);
+                    tw.Close();
+                }
+                else if (File.Exists(path))
+                {
+                    TextWriter tw = new StreamWriter(path, true);
+                    tw.WriteLine(path);
+                    tw.Close();
+                }
+                MessageBox.Show("Se creó y guardó exitosamente su documento de errores", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch
+            {
+                MessageBox.Show("Se produjo un error al crear o guardar el archivo de Errores", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
