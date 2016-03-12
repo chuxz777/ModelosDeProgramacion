@@ -117,7 +117,7 @@ namespace Analisis_Lexico_PL
         private void tls_Save_tokens_Click(object sender, EventArgs e)
         {
             string path = @"C:\Users\JoséAlberto\Desktop\Tokens.txt";
-
+            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             try
             {
                 File.WriteAllLines(path, new[] { rtxt_Tokens.Text });
