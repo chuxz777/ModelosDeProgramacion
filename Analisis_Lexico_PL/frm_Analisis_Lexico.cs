@@ -133,7 +133,7 @@ namespace Analisis_Lexico_PL
         {
             string sTodosErrores = obj_Check_text_BL.CargarErrores(rtxt_Tokens.Text);
             string path = @"C:\Users\JoséAlberto\Desktop\Errores.txt";
-
+            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             try
             {
                 File.WriteAllLines(path, new[] { sTodosErrores });
