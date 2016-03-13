@@ -45,31 +45,85 @@ namespace Cls_Analisis_Lexico_BL
                     a = a + "Error: Final de linea sin delimitador '.' \r\n";
                 }
             }
+            if (!a.Contains("EOF."))
+            {
+                a = a + "Error: Final de archivo sin código EOF. \r\n";
+            }
             return a;
         }
 
         public string Cargar_Lineas_Escritas(string sTextoEscrito)
         {
-            string a, aux1, aux2;
+            string a, aux1, aux2, aux3;
             a = string.Empty;
             aux1 = string.Empty;
             aux2 = string.Empty;
+            aux3 = string.Empty;
 
             // Reemplaza los puntos simples por puntos con espacio, asi no falla en el string.split con espacio vacio
             aux1 = sTextoEscrito.Replace(".", " . ");
-            aux2 = Regex.Replace(aux1, "\\n", "");
+            //aux2 = Regex.Replace(aux1, "\\n", "");
 
-            string[] sLinea = aux2.Split(' ');
+            string[] sLinea = aux1.Split('\n');
 
-            foreach (string Opera in sLinea)
-            {            
-                if (Opera == string.Empty)
+            if (sLinea.Contains("."))
+            {
+                foreach (string pedazo in sLinea)
                 {
-                    continue;
+                    string[] pedacito = pedazo.Split(' ');
+
+                    foreach (string pedacitito in pedacito)
+                    {
+                        if (pedacitito == string.Empty)
+                        {
+                            continue;
+                        }
+                        a = a + obj_cls_Create_Token_BL.TipoDeToken(pedacitito) + "\r\n";
+                    }
                 }
-                a = a + obj_cls_Create_Token_BL.TipoDeToken(Opera) + "\r\n";
-            }            
+            }
+            else
+            {
+                foreach (string pedazo in sLinea)
+                {
+                    string[] pedacito = pedazo.Split(' ');
+
+                    foreach (string pedacitito in pedacito)
+                    {
+                        if (pedacitito == string.Empty)
+                        {
+                            continue;
+                        }
+                        a = a + obj_cls_Create_Token_BL.TipoDeToken(pedacitito) + "\r\n";
+                        //a = a + "Error: Final de linea sin delimitador '.' \r\n";
+                    }
+                }
+            }
+            if (!a.Contains("Token Fin Archivo: EOF."))
+            {
+                a = a + "Error: Final de archivo sin código EOF. \r\n";
+            }
+
             return a;
+
+
+
+
+
+            //foreach (string Opera in sLinea)
+            //{            
+            //    if (Opera == string.Empty)
+            //    {
+            //        continue;
+            //    }
+            //    a = a + obj_cls_Create_Token_BL.TipoDeToken(Opera) + "\r\n";
+            //}
+            //if (!a.Contains("Token Fin Archivo: EOF"))
+            //{
+            //    a = a + "Error: Final de archivo sin código EOF. \r\n";
+            //}
+
+            //return a;
         }
 
         public string CargarErrores(string sTextoError)
