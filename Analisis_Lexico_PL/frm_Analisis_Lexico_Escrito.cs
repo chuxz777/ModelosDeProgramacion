@@ -77,5 +77,10 @@ namespace Analisis_Lexico_PL
         {
             Close();
         }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

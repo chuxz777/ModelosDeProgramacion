@@ -19,21 +19,6 @@ namespace Cls_Analisis_Lexico_BL
         Cls_Create_token_BL obj_cls_Create_Token_BL = new Cls_Create_token_BL();
         #endregion
 
-        //public bool CargarArchivoEnTxtBox(string sRutaArchivo, ref string sTexto)
-        //{
-        //    try
-        //    {
-        //        //linea para leer y convertir lo que lee en utf-7 de una vez.
-        //        // Documentacion de utf7  http://www.fileformat.info/info/charset/UTF-7/list.htm
-        //        sTexto = File.ReadAllText(sRutaArchivo, Encoding.UTF7);
-        //        return true;
-        //    }
-        //    catch
-        //    {
-        //        return false;
-        //    }
-        //}
-
         public string CargarLineas(string sRutaArchivo)
         {
             string a;
@@ -65,23 +50,24 @@ namespace Cls_Analisis_Lexico_BL
 
         public string Cargar_Lineas_Escritas(string sTextoEscrito)
         {
-            string a;
+            string a, aux1, aux2;
             a = string.Empty;
+            aux1 = string.Empty;
+            aux2 = string.Empty;
 
-            string[] sLinea = sTextoEscrito.Split('.');
+            // Reemplaza los puntos simples por puntos con espacio, asi no falla en el string.split con espacio vacio
+            aux1 = sTextoEscrito.Replace(".", " . ");
+            aux2 = Regex.Replace(aux1, "\\n", "");
+
+            string[] sLinea = aux2.Split(' ');
 
             foreach (string Opera in sLinea)
-            {
-                string[] sPieza = Regex.Split(sTextoEscrito, "\n");
-
-                foreach (string token in sPieza)
+            {            
+                if (Opera == string.Empty)
                 {
-                    if (token == string.Empty)
-                    {
-                        continue;
-                    }
-                    a = a + obj_cls_Create_Token_BL.TipoDeToken(token) + "\r\n";
+                    continue;
                 }
+                a = a + obj_cls_Create_Token_BL.TipoDeToken(Opera) + "\r\n";
             }            
             return a;
         }

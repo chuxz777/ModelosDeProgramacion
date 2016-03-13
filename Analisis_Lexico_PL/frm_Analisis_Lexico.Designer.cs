@@ -59,6 +59,7 @@
             this.groupBox1.Controls.Add(this.rtxt_Tokens);
             this.groupBox1.Controls.Add(this.rtxt_Mostar);
             this.groupBox1.Controls.Add(this.toolStrip1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(12, 96);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(687, 364);
@@ -168,6 +169,7 @@
             this.groupBox2.BackColor = System.Drawing.Color.Transparent;
             this.groupBox2.Controls.Add(this.txt_RutaArchivo);
             this.groupBox2.Controls.Add(this.toolStrip2);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox2.Location = new System.Drawing.Point(13, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(683, 77);

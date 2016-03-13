@@ -28,5 +28,10 @@ namespace Analisis_Lexico_PL
             frm_Analisis_Lexico_Escrito frm_ana1 = new frm_Analisis_Lexico_Escrito();
             frm_ana1.ShowDialog();
         }
+
+        private void frm_Menu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

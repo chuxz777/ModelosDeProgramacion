@@ -49,12 +49,14 @@
             this.groupBox1.Controls.Add(this.rtxt_Tokens);
             this.groupBox1.Controls.Add(this.rtxt_Mostar);
             this.groupBox1.Controls.Add(this.toolStrip1);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(687, 455);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Analizador Léxico";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rtxt_Tokens
             // 
@@ -93,6 +95,7 @@
             // 
             // tls_Analizar
             // 
+            this.tls_Analizar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.tls_Analizar.Image = ((System.Drawing.Image)(resources.GetObject("tls_Analizar.Image")));
             this.tls_Analizar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tls_Analizar.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -109,6 +112,7 @@
             // 
             // tls_Save_tokens
             // 
+            this.tls_Save_tokens.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.tls_Save_tokens.Image = ((System.Drawing.Image)(resources.GetObject("tls_Save_tokens.Image")));
             this.tls_Save_tokens.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tls_Save_tokens.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -125,6 +129,7 @@
             // 
             // tls_Errores
             // 
+            this.tls_Errores.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.tls_Errores.Image = ((System.Drawing.Image)(resources.GetObject("tls_Errores.Image")));
             this.tls_Errores.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tls_Errores.ImageTransparentColor = System.Drawing.Color.Magenta;
