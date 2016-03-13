@@ -116,12 +116,14 @@ namespace Analisis_Lexico_PL
 
         private void tls_Save_tokens_Click(object sender, EventArgs e)
         {
-            string path = @"C:\Users\JoséAlberto\Desktop\Tokens.txt";
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //string path = @"C:\Users\JoséAlberto\Desktop\Tokens.txt";
+            string path = 
+               Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Tokens- " + Guid.NewGuid().ToString() + ".txt");
+
             try
             {
                 File.WriteAllLines(path, new[] { rtxt_Tokens.Text });
-                MessageBox.Show("Se creó y guardó exitosamente su documento de tokens", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se creó y guardó exitosamente su documento de tokens, ubicacion Mis Documentos", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
@@ -132,12 +134,15 @@ namespace Analisis_Lexico_PL
         private void tls_Errores_Click(object sender, EventArgs e)
         {
             string sTodosErrores = obj_Check_text_BL.CargarErrores(rtxt_Tokens.Text);
-            string path = @"C:\Users\JoséAlberto\Desktop\Errores.txt";
-            //string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+           // string path = @"C:\Users\JoséAlberto\Desktop\Errores.txt";
+
+            string path =
+              Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Errores- " + Guid.NewGuid().ToString() + ".txt");
+
             try
             {
                 File.WriteAllLines(path, new[] { sTodosErrores });
-                MessageBox.Show("Se creó y guardó exitosamente su documento de errores", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se creó y guardó exitosamente su documento de errores, ubicacion Mis Documentos", "Texto Plano", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {

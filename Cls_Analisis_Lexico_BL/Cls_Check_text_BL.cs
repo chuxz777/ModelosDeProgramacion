@@ -66,11 +66,11 @@ namespace Cls_Analisis_Lexico_BL
 
             string[] sLinea = aux1.Split('\n');
 
-            if (sLinea.Contains("."))
+            for (int i = 0; i < sLinea.Length; i++)
             {
-                foreach (string pedazo in sLinea)
+                if (sLinea[i].Contains('.'))
                 {
-                    string[] pedacito = pedazo.Split(' ');
+                    string[] pedacito = sLinea[i].Split(' ');
 
                     foreach (string pedacitito in pedacito)
                     {
@@ -81,12 +81,9 @@ namespace Cls_Analisis_Lexico_BL
                         a = a + obj_cls_Create_Token_BL.TipoDeToken(pedacitito) + "\r\n";
                     }
                 }
-            }
-            else
-            {
-                foreach (string pedazo in sLinea)
+                else
                 {
-                    string[] pedacito = pedazo.Split(' ');
+                    string[] pedacito = sLinea[i].Split(' ');
 
                     foreach (string pedacitito in pedacito)
                     {
@@ -94,36 +91,17 @@ namespace Cls_Analisis_Lexico_BL
                         {
                             continue;
                         }
-                        a = a + obj_cls_Create_Token_BL.TipoDeToken(pedacitito) + "\r\n";
-                        //a = a + "Error: Final de linea sin delimitador '.' \r\n";
+                        a = a + obj_cls_Create_Token_BL.TipoDeToken(pedacitito) + "\r\n";  
                     }
+                    a = a + "Error: Final de linea sin delimitador '.' \r\n";
                 }
+
             }
-            if (!a.Contains("Token Fin Archivo: EOF."))
+            if (a.Contains("Token Fin Archivo: EOF") == false)
             {
                 a = a + "Error: Final de archivo sin código EOF. \r\n";
             }
-
             return a;
-
-
-
-
-
-            //foreach (string Opera in sLinea)
-            //{            
-            //    if (Opera == string.Empty)
-            //    {
-            //        continue;
-            //    }
-            //    a = a + obj_cls_Create_Token_BL.TipoDeToken(Opera) + "\r\n";
-            //}
-            //if (!a.Contains("Token Fin Archivo: EOF"))
-            //{
-            //    a = a + "Error: Final de archivo sin código EOF. \r\n";
-            //}
-
-            //return a;
         }
 
         public string CargarErrores(string sTextoError)
