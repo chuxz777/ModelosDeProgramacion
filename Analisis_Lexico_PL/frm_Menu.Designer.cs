@@ -94,7 +94,7 @@
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(273, 34);
             this.lblTitulo.TabIndex = 2;
-            this.lblTitulo.Text = "Analizador Lexico";
+            this.lblTitulo.Text = "Analizador Léxico";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // frm_Menu
