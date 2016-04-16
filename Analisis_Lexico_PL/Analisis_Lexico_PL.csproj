@@ -58,6 +58,12 @@
     <Compile Include="frm_Analisis_Lexico_Escrito.Designer.cs">
       <DependentUpon>frm_Analisis_Lexico_Escrito.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_GLC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_GLC.Designer.cs">
+      <DependentUpon>frm_GLC.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Analisis_Lexico_Escrito.resx">
       <DependentUpon>frm_Analisis_Lexico_Escrito.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_GLC.resx">
+      <DependentUpon>frm_GLC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Menu.resx">
       <DependentUpon>frm_Menu.cs</DependentUpon>

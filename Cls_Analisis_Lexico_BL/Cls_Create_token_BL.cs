@@ -45,6 +45,21 @@ namespace Cls_Analisis_Lexico_BL
             FinArchivo = "[EOF]";
         public static readonly string
             FinLinea = "[\\.]";
+        //Caracters para palabra reservada IF
+        public static readonly string
+            ReservadaIF = "[(?i)^IF]";
+        //Caracters para palabra reservada CASE
+        public static readonly string
+            ReservadaCASE = "[(?i)^CASE]";
+        //Caracters para palabra reservada DO
+        public static readonly string
+            ReservadaDO = "[(?i)^DO]";
+        //Caracters para palabra reservada UNTIL
+        public static readonly string
+            ReservadaUNTIL = "[(?i)^UNTIL]";
+        //Caracters para palabra reservada WHILE
+        public static readonly string
+            ReservadaWHILE = "[(?i)^WHILE]";
 
         public string TipoDeToken(string sEvaluar)
         {
@@ -60,6 +75,11 @@ namespace Cls_Analisis_Lexico_BL
             Match matchAsignacion = Regex.Match(sEvaluar, Asignacion);
             Match matchFinArchivo = Regex.Match(sEvaluar, FinArchivo);
             Match matchFinLinea = Regex.Match(sEvaluar, FinLinea);
+            Match matchReservadaIF = Regex.Match(sEvaluar, ReservadaIF);
+            Match matchReservadaCASE = Regex.Match(sEvaluar, ReservadaCASE);
+            Match matchReservadaDO = Regex.Match(sEvaluar, ReservadaDO);
+            Match matchReservadaUNTIL = Regex.Match(sEvaluar, ReservadaUNTIL);
+            Match matchReservadaWHILE = Regex.Match(sEvaluar, ReservadaWHILE);
 
             if (matchPalabra.Success)
             {
@@ -71,27 +91,27 @@ namespace Cls_Analisis_Lexico_BL
             }
             else if (matchSuma.Success)
             {
-                sResultado = "Token Suma: " + sEvaluar;
+                sResultado = "Token Operador Suma: " + sEvaluar;
             }
             else if (matchResta.Success)
             {
-                sResultado = "Token Resta: " + sEvaluar;
+                sResultado = "Token Operador Resta: " + sEvaluar;
             }
             else if (matchMultiplicacion.Success)
             {
-                sResultado = "Token Multiplicacion: " + sEvaluar;
+                sResultado = "Token Operador Multiplicacion: " + sEvaluar;
             }
             else if (matchDivision.Success)
             {
-                sResultado = "Token Division: " + sEvaluar;
+                sResultado = "Token Operador Division: " + sEvaluar;
             }
             else if (matchParentesis.Success)
             {
-                sResultado = "Token Parentesis: " + sEvaluar;
+                sResultado = "Token Operador Parentesis: " + sEvaluar;
             }
             else if (matchAsignacion.Success)
             {
-                sResultado = "Token Asignacion: " + sEvaluar;
+                sResultado = "Token Operador Asignacion: " + sEvaluar;
             }
             else if (matchFinArchivo.Success)
             {
@@ -101,13 +121,31 @@ namespace Cls_Analisis_Lexico_BL
             {
                 sResultado = "Token Fin de Linea: " + sEvaluar;
             }
+            else if (matchReservadaIF.Success)
+            {
+                sResultado = "Token Palabra Reservada If: " + sEvaluar;
+            }
+            else if (matchReservadaCASE.Success)
+            {
+                sResultado = "Token Palabra Reservada Case: " + sEvaluar;
+            }
+            else if (matchReservadaDO.Success)
+            {
+                sResultado = "Token Palabra Reservada Do: " + sEvaluar;
+            }
+            else if (matchReservadaUNTIL.Success)
+            {
+                sResultado = "Token Palabra Reservada Until: " + sEvaluar;
+            }
+            else if (matchReservadaWHILE.Success)
+            {
+                sResultado = "Token Palabra Reservada While: " + sEvaluar;
+            }
             else
             {
                 return "Caracter no especificado";
             }
             return sResultado;
         }
-
-
     }
 }
