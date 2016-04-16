@@ -49,7 +49,7 @@ namespace Cls_Analisis_Lexico_BL
             {
                 a = a + "Error: Final de archivo sin código EOF. \r\n";
             }
-            return a;
+            return a; // A es la lista
         }
 
         public string Cargar_Lineas_Escritas(string sTextoEscrito)

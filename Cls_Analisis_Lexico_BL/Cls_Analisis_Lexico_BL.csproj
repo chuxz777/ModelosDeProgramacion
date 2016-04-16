@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Cls_Check_text_BL.cs" />
     <Compile Include="Cls_Create_token_BL.cs" />
+    <Compile Include="Cls_Gramatica_libre_contexto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
