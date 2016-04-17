@@ -108,7 +108,7 @@
             this.tlsbtn_GLC});
             this.toolStrip3.Location = new System.Drawing.Point(375, 196);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(55, 70);
+            this.toolStrip3.Size = new System.Drawing.Size(86, 70);
             this.toolStrip3.TabIndex = 3;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -121,6 +121,7 @@
             this.tlsbtn_GLC.Size = new System.Drawing.Size(52, 67);
             this.tlsbtn_GLC.Text = "GLC";
             this.tlsbtn_GLC.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tlsbtn_GLC.Click += new System.EventHandler(this.tlsbtn_GLC_Click);
             // 
             // frm_Menu
             // 

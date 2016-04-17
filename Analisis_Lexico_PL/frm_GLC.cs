@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using ;
+using Cls_Analisis_Lexico_BL;
 using System.Windows.Input;
 using System.IO;
 
@@ -20,6 +20,12 @@ namespace Analisis_Lexico_PL
             InitializeComponent();
         }
 
+        #region Variables Globales
+
+        Cls_Gramatica_libre_contexto obj_Gramatica = new Cls_Gramatica_libre_contexto();
+
+        #endregion
+
         private void tls_Abrir_Click(object sender, EventArgs e)
         {
             // Variable utilizada para mostrar el cuadro de seleccionar archivo
@@ -28,6 +34,18 @@ namespace Analisis_Lexico_PL
             // Solo se pueden seleccionar archivos de Texto Plano
             objAbrirArchivo.Filter = "Text Files (*.txt)|*txt";
 
+            if (objAbrirArchivo.ShowDialog() == DialogResult.OK)
+            {
+                txt_RutaArchivo.Text = objAbrirArchivo.FileName;
+                // Se setea en el text box la ruta
+                MessageBox.Show("Archivo abierto con éxito", "Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tls_Cargar.Enabled = true;
+                tls_Analizar.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Archivo no pudo ser accesado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tls_Cargar_Click(object sender, EventArgs e)
@@ -51,7 +69,7 @@ namespace Analisis_Lexico_PL
         {
             try
             {
-                //rtxt_Tokens.Text = obj_Check_text_BL.CargarLineas(txt_RutaArchivo.Text).ToString();
+                rtxt_Tokens.Text = obj_Gramatica.RevisarGramatica(rtxt_Mostar.Text).ToString();
             }
             catch
             {

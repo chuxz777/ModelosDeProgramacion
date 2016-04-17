@@ -9,7 +9,7 @@ using Cls_Analisis_Lexico_BL;
 
 namespace Cls_Analisis_Lexico_BL
 {
-    class Cls_Gramatica_libre_contexto
+    public class Cls_Gramatica_libre_contexto
     {
 
         #region Variables Globales
@@ -23,47 +23,60 @@ namespace Cls_Analisis_Lexico_BL
             string s_resultado = "";
 
             // reemplazarlo por s_listaTokens
-            string temporal = "Token Numero: 8 Token Suma: +  \n Token Numero: 5 \n Token Fin de Linea: .\n Error: Final de archivo sin código EOF.\n";
+            string temporal = s_listaTokens;
             // Logica
 
             string[] sPieza = temporal.Split('\n');
 
+            int aux_anterior = 0;
+            int aux_siguiente = 0;
+            int diferencia = 0;
+
             for (int i = 0; i < sPieza.Length; i++)
             {
-                if ((sPieza[i].Contains("Token Fin de Linea")| (sPieza[i].Contains("Error:"))))
+                if (sPieza[i].Contains("Token Fin de Linea") || (sPieza[i].Contains("Error:")))
                 {
-                    int i_posicion = i;
+                    aux_siguiente = i;
 
-                    // leer toda la linea del texto y  Evaluar la 
-                    // opcion de gramatica 1 LETRAS NUMEROS LETRAS 3 variables
-                    if ((sPieza[i_posicion - i_posicion].Contains("Token Palabra:")
-                        & sPieza[i_posicion - 1].Contains("Token Numero:")
-                        & sPieza[i_posicion].Contains("Token Palabra:")))
+                    //Operacion para conocer 
+                    if ((aux_anterior != 0) && (aux_siguiente != 0))
+                    {
+                        diferencia = aux_siguiente - aux_anterior;
+                    }
+
+                    if ((diferencia > 3) || (i < 4))//Evaluar la opcion de gramatica 1) LETRAS NUMEROS LETRAS 3 variables
+                    {
+                        if ((sPieza[i - 3].Contains("Palabra")
+                        && sPieza[i - 2].Contains("Numero")
+                        && sPieza[i - 1].Contains("Palabra")))
                         {
-                           s_resultado = "Gramatica correcta de las lineas hasta la "+ i_posicion.ToString();
+                            s_resultado += "Gramatica correcta de LNL: " + (i + 1).ToString() + "\n";
                         }
-                    // opcion de gramatica 2 NUMEROS OPERADOR NUMEROS 3 variables
-                    if ((sPieza[i_posicion - i_posicion].Contains("Token Numero:")
-                        & sPieza[i_posicion - 1].Contains("Token Operador:")
-                        & sPieza[i_posicion].Contains("Token Numero:")))
-                    {
-                        s_resultado = "Gramatica correcta de las lineas hasta la " + i_posicion.ToString();
+                        else // opcion de gramatica 2) NUMEROS OPERADOR NUMEROS 3 variables
+                        if ((sPieza[i - 3].Contains(" Numero")
+                            && sPieza[i - 2].Contains("Operador")
+                            && sPieza[i - 1].Contains("Numero")))
+                        {
+                            s_resultado += "Gramatica correcta de NoN: " + (i + 1).ToString() + "\n";
+                        }
                     }
-
-           /// aca la logica seria diferente solo una pocicion y la siguiente sea un final de linea
-                    // opcion de gramatica 3 LETRAS 1 variable
-                    if ((sPieza[i_posicion - 1].Contains("Token Palabra:")))
+                    else 
+                    if ((diferencia < 3) || (i < 2))// opcion de gramatica 3) PALABRA/LETRAS 1 variable
                     {
-                        s_resultado = "Gramatica correcta de la linea" + i_posicion.ToString();
-                    }
-                    // opcion de gramatica 4 NUMEROS 1 variable
-                    if ((sPieza[i_posicion - 1].Contains("Token Numero:")))
-                    {
-                        s_resultado = "Gramatica correcta de la lineas" + i_posicion.ToString();
+                        if ((sPieza[i - 1].Contains("Palabra")))
+                        {
+                            s_resultado += "Gramatica correcta de L: " + (i + 1).ToString() + "\n";
+                        }
+                        // opcion de gramatica 4) NUMEROS 1 variable
+                        if ((sPieza[i - 1].Contains("Numero")))
+                        {
+                            s_resultado += "Gramatica correcta de N: " + (i + 1).ToString() + "\n";
+                        }
                     }
                 }
+                aux_anterior = aux_siguiente;
             }
-            //// enviarl el resultado
+            // enviarl el resultado
             return s_resultado;
         }
     }

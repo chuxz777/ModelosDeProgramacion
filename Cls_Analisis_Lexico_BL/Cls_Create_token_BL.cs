@@ -21,7 +21,7 @@ namespace Cls_Analisis_Lexico_BL
             Numero = "[0-9]";
         // Cualquier caracter de la a hasta la z una o mas veces
         public static readonly string
-            Palabra = "(?!EOF)[a-z]";
+            Palabra = "(?!(?:EOF|if|case|do|until|while))[a-z]";
         //Caracter de suma
         public static readonly string
             Suma = "[\\+]";
@@ -42,24 +42,24 @@ namespace Cls_Analisis_Lexico_BL
             Asignacion = "[\\=]";
         //Caracters para fin de archivo
         public static readonly string
-            FinArchivo = "[EOF]";
+            FinArchivo = "(^EOF)";
         public static readonly string
             FinLinea = "[\\.]";
         //Caracters para palabra reservada IF
         public static readonly string
-            ReservadaIF = "[(?i)^IF]";
+            ReservadaIF = "(?i)(^IF)";
         //Caracters para palabra reservada CASE
         public static readonly string
-            ReservadaCASE = "[(?i)^CASE]";
+            ReservadaCASE = "(?i)(^CASE)";
         //Caracters para palabra reservada DO
         public static readonly string
-            ReservadaDO = "[(?i)^DO]";
+            ReservadaDO = "(?i)(^DO)";
         //Caracters para palabra reservada UNTIL
         public static readonly string
-            ReservadaUNTIL = "[(?i)^UNTIL]";
+            ReservadaUNTIL = "(?i)(^UNTIL)";
         //Caracters para palabra reservada WHILE
         public static readonly string
-            ReservadaWHILE = "[(?i)^WHILE]";
+            ReservadaWHILE = "(?i)(^WHILE)";
 
         public string TipoDeToken(string sEvaluar)
         {
@@ -75,11 +75,11 @@ namespace Cls_Analisis_Lexico_BL
             Match matchAsignacion = Regex.Match(sEvaluar, Asignacion);
             Match matchFinArchivo = Regex.Match(sEvaluar, FinArchivo);
             Match matchFinLinea = Regex.Match(sEvaluar, FinLinea);
-            Match matchReservadaIF = Regex.Match(sEvaluar, ReservadaIF);
-            Match matchReservadaCASE = Regex.Match(sEvaluar, ReservadaCASE);
-            Match matchReservadaDO = Regex.Match(sEvaluar, ReservadaDO);
-            Match matchReservadaUNTIL = Regex.Match(sEvaluar, ReservadaUNTIL);
-            Match matchReservadaWHILE = Regex.Match(sEvaluar, ReservadaWHILE);
+            Match matchReservadaIF = Regex.Match(sEvaluar, ReservadaIF, RegexOptions.IgnoreCase);
+            Match matchReservadaCASE = Regex.Match(sEvaluar, ReservadaCASE, RegexOptions.IgnoreCase);
+            Match matchReservadaDO = Regex.Match(sEvaluar, ReservadaDO, RegexOptions.IgnoreCase);
+            Match matchReservadaUNTIL = Regex.Match(sEvaluar, ReservadaUNTIL, RegexOptions.IgnoreCase);
+            Match matchReservadaWHILE = Regex.Match(sEvaluar, ReservadaWHILE, RegexOptions.IgnoreCase);
 
             if (matchPalabra.Success)
             {
@@ -123,7 +123,7 @@ namespace Cls_Analisis_Lexico_BL
             }
             else if (matchReservadaIF.Success)
             {
-                sResultado = "Token Palabra Reservada If: " + sEvaluar;
+                sResultado = "Token Palabra Reservada IF: " + sEvaluar;
             }
             else if (matchReservadaCASE.Success)
             {

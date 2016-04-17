@@ -33,5 +33,11 @@ namespace Analisis_Lexico_PL
         {
 
         }
+
+        private void tlsbtn_GLC_Click(object sender, EventArgs e)
+        {
+            frm_GLC frm_veriGLC = new frm_GLC();
+            frm_veriGLC.ShowDialog();
+        }
     }
 }
