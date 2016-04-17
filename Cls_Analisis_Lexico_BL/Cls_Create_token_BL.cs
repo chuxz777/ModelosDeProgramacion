@@ -15,13 +15,19 @@ namespace Cls_Analisis_Lexico_BL
         numero
         operadores {+,-,*,/,(,),=}        
         */
+        #region Opciones REGEX
+
+        RegexOptions options = RegexOptions.IgnoreCase;
+        
+        #endregion
+
 
         // Signo positivo o negativo, Cualquier digito del 0 al 9, al menos una vez
         public static readonly string
             Numero = "[0-9]";
         // Cualquier caracter de la a hasta la z una o mas veces
         public static readonly string
-            Palabra = "(?!(?:EOF|if|case|do|until|while))[a-z]";
+            Palabra = "(?!(EOF))[a-z]";
         //Caracter de suma
         public static readonly string
             Suma = "[\\+]";
@@ -50,10 +56,10 @@ namespace Cls_Analisis_Lexico_BL
             ReservadaIF = "(?i)(^IF)";
         //Caracters para palabra reservada CASE
         public static readonly string
-            ReservadaCASE = "(?i)(^CASE)";
+            ReservadaCASE = "(?i)[^CASE]";
         //Caracters para palabra reservada DO
         public static readonly string
-            ReservadaDO = "(?i)(^DO)";
+            ReservadaDO = "(?i)[^DO]";
         //Caracters para palabra reservada UNTIL
         public static readonly string
             ReservadaUNTIL = "(?i)(^UNTIL)";
@@ -75,11 +81,11 @@ namespace Cls_Analisis_Lexico_BL
             Match matchAsignacion = Regex.Match(sEvaluar, Asignacion);
             Match matchFinArchivo = Regex.Match(sEvaluar, FinArchivo);
             Match matchFinLinea = Regex.Match(sEvaluar, FinLinea);
-            Match matchReservadaIF = Regex.Match(sEvaluar, ReservadaIF, RegexOptions.IgnoreCase);
-            Match matchReservadaCASE = Regex.Match(sEvaluar, ReservadaCASE, RegexOptions.IgnoreCase);
-            Match matchReservadaDO = Regex.Match(sEvaluar, ReservadaDO, RegexOptions.IgnoreCase);
-            Match matchReservadaUNTIL = Regex.Match(sEvaluar, ReservadaUNTIL, RegexOptions.IgnoreCase);
-            Match matchReservadaWHILE = Regex.Match(sEvaluar, ReservadaWHILE, RegexOptions.IgnoreCase);
+            Match matchReservadaIF = Regex.Match(sEvaluar, ReservadaIF, options);
+            Match matchReservadaCASE = Regex.Match(sEvaluar, ReservadaCASE, options);
+            Match matchReservadaDO = Regex.Match(sEvaluar, ReservadaDO, options);
+            Match matchReservadaUNTIL = Regex.Match(sEvaluar, ReservadaUNTIL, options);
+            Match matchReservadaWHILE = Regex.Match(sEvaluar, ReservadaWHILE, options);
 
             if (matchPalabra.Success)
             {

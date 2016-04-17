@@ -60,7 +60,7 @@ namespace Cls_Analisis_Lexico_BL
                             s_resultado += "Gramatica correcta de NoN: " + (i + 1).ToString() + "\n";
                         }
                     }
-                    else 
+                    else
                     if ((diferencia < 3) || (i < 2))// opcion de gramatica 3) PALABRA/LETRAS 1 variable
                     {
                         if ((sPieza[i - 1].Contains("Palabra")))
@@ -72,6 +72,10 @@ namespace Cls_Analisis_Lexico_BL
                         {
                             s_resultado += "Gramatica correcta de N: " + (i + 1).ToString() + "\n";
                         }
+                    }
+                    else
+                    {
+                        s_resultado += "Gramatica Incorrecta: " + (i + 1).ToString() + "\n";
                     }
                 }
                 aux_anterior = aux_siguiente;
